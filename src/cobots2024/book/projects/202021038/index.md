@@ -50,3 +50,44 @@
 ## 숙제
 - !![스크린샷 2024-05-21 155618](https://github.com/chu-aie/cobots-2024/assets/133960401/1f6ab0be-0499-4aee-a1ff-765e827b9fba)
 
+## 기말 과제
+Jupyter Notebook 프로토타입 제작 중 오류를 해결하지 못하여 turtlesim 실행하기로 하였다.
+![화면 캡처 2024-06-22 233516](https://github.com/chu-aie/cobots-2024/assets/133960401/96c4a2b5-f8c4-467f-8bed-169eb4a22f31)
+![화면 캡처 2024-06-22 233529](https://github.com/chu-aie/cobots-2024/assets/133960401/c8a8e3b2-deab-4334-bb7f-68d8cd8fff95)
+
+turtlesim 실행
+- git 명령어를 통해 ros_tutorials git repository를 colone 하여 저장소 복제
+~/dev_ws/src$ git clone https://github.com/ros/ros_tutorials.git -b dashing-devel
+
+Cloning into 'ros_tutorials'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 2689 (delta 3), reused 3 (delta 1), pack-reused 2680
+Receiving objects: 100% (2689/2689), 574.30 KiB | 678.00 KiB/s, done.
+Resolving deltas: 100% (1620/1620), done.
+
+- ros_tutorials로 이동하여 colcon으로 빌드
+~/dev_ws/src/ros_tutorials$ colcon build
+Starting >>> turtlesim
+Finished <<< turtlesim [0.63s]
+
+Summary: 1 package finished [0.84s]
+
+-bash 환경 파일인 setup.bash 을 실행하여 빌드된 package 설치
+~/dev_ws/src/ros_tutorials$ source ./install/setup.bash
+
+- ros2 build 명령어로 turtlesim 패키지의 turtlesim_node 노드를 실행
+
+~/dev_ws/src/ros_tutorials$ ros2 run turtlesim turtlesim_node
+<img width="374" alt="img" src="https://github.com/chu-aie/cobots-2024/assets/133960401/ab77f615-2602-451e-857a-d39e512d4b0c">
+
+- turtle 을 이동하기 위해서, turtlesim 패키지의 turtle_teleop_key 노드를 실행
+
+- 키보드의 방향키를 누르면 turtle 조작 가능
+  ~/dev_ws/src/ros_tutorials$ ros2 run turtlesim turtle_teleop_key
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle.
+Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
+'Q' to quit.
